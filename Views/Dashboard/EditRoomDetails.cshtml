@@ -1,0 +1,84 @@
+﻿@model RoomDetails
+
+@{
+}
+<form asp-controller="Dashboard" asp-action="UpdateRoomDetails" method="post" dir="rtl">
+	<input type="hidden" asp-for="@Model.Id" />
+
+	<div class="row">
+		<div class="col">
+			<label for="Name" class="p-2">اختر الفندق</label>
+			<select class="form-control form-control-sm" name="IdHotel">
+				<option value="0"></option>
+				@foreach (var item in ViewBag.hotel)
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+			</select>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<label for="Type" class="p-2">اختر الغرفة </label>
+			<select class="form-control form-control-sm" name="IdRooms" asp-for="@Model.IdRooms">
+				<option value="0"></option>
+				@foreach (var item in ViewBag.rooms)
+				{
+					<option value="@item.Id">@item.Type</option>
+				}
+			</select>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<label for="Address" class="p-2">  المميزات  </label>
+			<input type="text" id="Features" name="Features" class="form-control form-control-sm" required asp-for="@Model.Features" />
+
+
+		</div>
+		<div class="col-sm-6">
+			<label for="City" class="p-2">  الأكل </label>
+			<input type="text" id="Food" name="Food" class="form-control form-control-sm" required asp-for="@Model.Food" />
+
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<label for="Address" class="p-2">  الصورة الاولى </label>
+			<input type="text" id="Image1" name="Image1" class="form-control form-control-sm" required asp-for="@Model.Image1" />
+
+
+		</div>
+		<div class="col-sm-6">
+			<label for="City" class="p-2">  الصورة الثانية </label>
+			<input type="text" id="Image2" name="Image2" class="form-control form-control-sm" required asp-for="@Model.Image2" />
+
+
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="row">
+			<div class="col">
+				<label for="Images" class="p-2"> الصورة الثالثة </label>
+				<input type="text" id="Image3" name="Image3" class="form-control form-control-sm" required asp-for="@Model.Image3" />
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row mt-3">
+		<div class="col text-center">
+
+			<button class="btn btn-success" type="submit">حفظ</button>
+
+
+		</div>
+
+	</div>
+</form>

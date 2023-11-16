@@ -1,0 +1,65 @@
+﻿@model Rooms
+@{
+}
+
+<form asp-controller="Dashboard" asp-action="UpdateRooms" method="post" dir="rtl">
+	<input type="hidden" asp-for="@Model.Id" />
+
+	<div class="row">
+		<div class="col">
+			<label for="Name" class="p-2">اختر الفندق</label>
+			<select class="form-control form-control-sm" name="IdHotel" asp-for=@Model.IdHotel>
+				<option value="0"></option>
+				@foreach (var item in ViewBag.hotel)
+				{
+					<option value="@item.Id">@item.Name</option>
+				}
+			</select>
+
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="row">
+			<div class="col">
+				<label for="Images" class="p-2"> رقم لوحة الغرفة </label>
+				<input type="text" id="Image" name="Image" class="form-control form-control-sm" required asp-for="@Model.RoomNo"/>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<label for="Address" class="p-2">  نوع الغرفة </label>
+			<input type="text" id="Type" name="Type" class="form-control form-control-sm" required asp-for="@Model.Type"/>
+
+
+		</div>
+		<div class="col-sm-6">
+			<label for="City" class="p-2">  سعر الغرفة</label>
+			<input type="text" id="Price" name="Price" class="form-control form-control-sm" required asp-for="@Model.Price" />
+
+
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="row">
+			<div class="col">
+				<label for="Images" class="p-2"> الصورة </label>
+				<input type="text" id="Image" name="Image" class="form-control form-control-sm" required asp-for="@Model.Image"/>
+			</div>
+
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col text-center">
+
+			<button class="btn btn-success" type="submit">حفظ</button>
+
+
+		</div>
+
+	</div>
+</form>
